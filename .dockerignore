@@ -1,9 +1,10 @@
-.git
-.github
-.hust
-*.tgz
-dist
-log
 node_modules
-npm-debug.log
+dist
+.git
+
+wppconnect_tokens
+wppconnect_tokens/**
 tokens
+tokens/**
+userDataDir
+userDataDir/**

@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 
 services:
   wppconnect:
@@ -6,11 +6,17 @@ services:
     restart: unless-stopped
     build:
       context: .
+
+    shm_size: '4gb'
+
+    environment:
+      - NODE_OPTIONS=--max-old-space-size=4096
+
     volumes:
       - ./config.ts:/usr/src/wpp-server/config.ts
       - ./wppconnect_tokens:/usr/src/wpp-server/tokens
     ports:
-      - "21465:21465"
+      - '21465:21465'
 
 volumes:
-  wppconnect_tokens: {}      
+  wppconnect_tokens: {}

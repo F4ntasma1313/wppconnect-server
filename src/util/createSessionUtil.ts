@@ -73,12 +73,37 @@ export default class CreateSessionUtil {
                 },
               }
             : {},
-          req.serverOptions.createOptions,
+
+          {
+            ...req.serverOptions.createOptions,
+
+            puppeteerOptions: {
+              headless: true,
+              useChrome: true,
+              protocolTimeout: 1200000,
+
+              args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-gpu',
+                '--disable-extensions',
+                '--disable-background-networking',
+                '--disable-background-timer-throttling',
+                '--disable-renderer-backgrounding',
+                '--disable-sync',
+                '--mute-audio',
+                '--no-first-run',
+                '--no-zygote',
+              ],
+            },
+          },
+
           {
             session: session,
             phoneNumber: client.config.phone ?? null,
             deviceName:
-              client.config.phone == undefined // bug when using phone code this shouldn't be passed (https://github.com/wppconnect-team/wppconnect-server/issues/1687#issuecomment-2099357874)
+              client.config.phone == undefined
                 ? client.config?.deviceName ||
                   req.serverOptions.deviceName ||
                   'WppConnect'

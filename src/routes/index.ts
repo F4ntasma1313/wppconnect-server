@@ -412,18 +412,18 @@ routes.get(
   statusConnection,
   DeviceController.getAllNewMessages
 );
-routes.get(
-  '/api/:session/unread-messages',
-  verifyToken,
-  statusConnection,
-  DeviceController.getUnreadMessages
-);
-routes.get(
-  '/api/:session/all-unread-messages',
-  verifyToken,
-  statusConnection,
-  DeviceController.getAllUnreadMessages
-);
+// routes.get(
+//   '/api/:session/unread-messages',
+//   verifyToken,
+//   statusConnection,
+//   DeviceController.getUnreadMessages
+// );
+// routes.get(
+//   '/api/:session/all-unread-messages',
+//   verifyToken,
+//   statusConnection,
+//   DeviceController.getUnreadMessages
+// );
 routes.get(
   '/api/:session/chat-by-id/:phone',
   verifyToken,

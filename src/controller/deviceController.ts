@@ -342,29 +342,29 @@ export async function getAllNewMessages(req: Request, res: Response) {
   }
 }
 
-export async function getAllUnreadMessages(req: Request, res: Response) {
-  /**
-   * #swagger.tags = ["Chat"]
-     #swagger.autoBody=false
-     #swagger.security = [{
-            "bearerAuth": []
-     }]
-     #swagger.parameters["session"] = {
-      schema: 'NERDWHATS_AMERICA'
-     }
-   */
-  try {
-    const response = await req.client.getAllUnreadMessages();
-    res.status(200).json({ status: 'success', response: response });
-  } catch (e) {
-    req.logger.error(e);
-    res.status(500).json({
-      status: 'error',
-      message: 'Error on get all messages in chat',
-      error: e,
-    });
-  }
-}
+// export async function getAllUnreadMessages(req: Request, res: Response) {
+//   /**
+//    * #swagger.tags = ["Chat"]
+//      #swagger.autoBody=false
+//      #swagger.security = [{
+//             "bearerAuth": []
+//      }]
+//      #swagger.parameters["session"] = {
+//       schema: 'NERDWHATS_AMERICA'
+//      }
+//    */
+//   try {
+//     const response = await req.client.getAllUnreadMessages();
+//     res.status(200).json({ status: 'success', response: response });
+//   } catch (e) {
+//     req.logger.error(e);
+//     res.status(500).json({
+//       status: 'error',
+//       message: 'Error on get all messages in chat',
+//       error: e,
+//     });
+//   }
+// }
 
 export async function getChatById(req: Request, res: Response) {
   /**
